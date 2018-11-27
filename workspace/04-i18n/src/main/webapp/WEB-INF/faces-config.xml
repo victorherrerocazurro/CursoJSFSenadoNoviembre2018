@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.3"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd ">
+
+	<application>
+		<locale-config>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		<message-bundle>custom.MyMessages</message-bundle>
+		<resource-bundle>
+			<base-name>custom.MyMessages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>custom.MyMessages</base-name>
+			<var>msg1</var>
+		</resource-bundle>
+	</application>
+
+	<managed-bean>
+		<managed-bean-name>lista</managed-bean-name>
+		<managed-bean-class>java.util.ArrayList</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+</faces-config>
