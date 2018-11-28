@@ -1,0 +1,16 @@
+Crear una aplicacion CRUD de Clientes.
+
+	* Id (Autogenerado por el sistema)
+	* Nombre
+	* Fecha de Alta
+
+* Pagina inicial con enlaces al resto.
+
+* Pagina de Formulario de alta: Nombre y Fecha. 
+Debe dar como fedback al usuario el Id generado con un 
+alert.
+
+* Pagina de Listado de Clientes, paginado, ordenable, editable.
+
+* Pagina de Grafica de tipo Tarta con los clientes agrupados por 
+año.
