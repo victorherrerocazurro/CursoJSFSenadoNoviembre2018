@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText id="out" value="#{indexController.saludo.generado}"></h:outputText>
+		<h:inputText id="texto" value="#{indexController.saludo.texto}">
+			<f:validateLength minimum="3" maximum="5"></f:validateLength>
+		</h:inputText>
+		<h:message for="texto"></h:message>
+		<h:commandButton action="#{indexController.saludar()}" value="Saludar">
+			<f:ajax execute="@form" render="out" event="click" immediate="true" listener="#{indexController.ajax}"/>
+		</h:commandButton>
+		<h:commandButton action="#{indexController.saludar()}" 
+			value="Saludar" 
+			onclick="jsf.ajax.request(this, event, {execute:'@form',render:'j_idt4:texto'}); return false;" />
+		<h:commandButton action="#{indexController.saludar()}" 
+			value="Saludar" 
+			onclick="mojarra.ab(this,event,'click','@form','j_idt4:texto',{});return false;" />
+	</h:form>
+</h:body>
+</html>
