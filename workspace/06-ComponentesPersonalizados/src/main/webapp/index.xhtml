@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://java.sun.com/jsf/composite/input/buscador"
+	xmlns:g="http://mis.componentes/jsf">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="#{indexController.saludo.generado}"></h:outputText>
+		<h:inputText id="texto" value="#{indexController.saludo.texto}">
+			<f:validateLength minimum="3" maximum="5"></f:validateLength>
+		</h:inputText>
+		<h:message for="texto"></h:message>
+		<!-- <h:commandButton action="#{indexController.saludar()}" value="Saludar"></h:commandButton>-->
+		<b:Buscador actionLabel="Saludar" 
+			actionMethod="#{indexController.saludar()}" 
+			resetLabel="Resetear"/>
+		<g:MiOutput value="Mi componente personalizado" pepito="este es el valor de pepito"/>
+	</h:form>
+</h:body>
+</html>

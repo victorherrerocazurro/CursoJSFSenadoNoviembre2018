@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<composite:interface>
+	<composite:attribute name="actionLabel" />
+	<composite:attribute name="actionMethod"
+		method-signature="java.lang.String action()" />
+	<composite:attribute name="resetLabel" />
+</composite:interface>
+<composite:implementation>
+	<h:commandButton value="#{cc.attrs.actionLabel}"
+		action="#{cc.attrs.actionMethod}" />
+	<h:commandButton value="#{cc.attrs.resetLabel}" type="reset" />
+</composite:implementation>
+
+</html>
