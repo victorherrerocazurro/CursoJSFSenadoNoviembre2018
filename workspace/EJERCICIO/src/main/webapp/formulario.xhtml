@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+<h1>Formulario</h1>
+<h:form>
+    <p:panel id="panel" header="Form" style="margin-bottom:10px;">
+        <p:messages id="messages" />
+        <h:panelGrid columns="2" cellpadding="5">
+        	
+            <h:outputLabel for="name" value="Nombre:" />
+            <p:inputText id="name" required="true" value="#{formularioController.cliente.nombre}" />
+ 
+            <p:outputLabel for="@next" value="Apellidos:" />
+            <p:inputText id="apellidos" required="true" value="#{formularioController.cliente.apellidos}"/>
+ 
+            <p:outputLabel for="popup" value="Fecha:" />
+            <p:calendar id="popup" value="#{formularioController.cliente.fecha}" />
+ 
+        </h:panelGrid>
+    </p:panel>
+ 
+    <p:commandButton action="#{formularioController.alta}" value="Submit" update="panel"  />
+</h:form>
+</h:body>
+</html>

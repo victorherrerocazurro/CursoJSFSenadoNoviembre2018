@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+
+<h1>Clientes</h1>
+
+
+<h:form id="form">
+	<p:growl id="msgs" showDetail="true"/>
+    <p:dataTable var="cliente" value="#{tablaController.clientes}" rows="10"
+                 paginator="true"
+                 editable="true"
+                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 rowsPerPageTemplate="5,10,15">
+ 
+ 		<p:ajax event="rowEdit" listener="#{tablaController.onRowEdit}" update=":form:msgs" />
+        <p:ajax event="rowEditCancel" listener="#{tablaController.onRowCancel}" update=":form:msgs" />
+ 
+         <p:column headerText="ID" sortBy="#{cliente.id}">
+         	<h:outputText value="#{cliente.id}" />
+        </p:column>
+        
+        <p:column headerText="Nombre" sortBy="#{cliente.nombre}">
+        	<p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{cliente.nombre}" /></f:facet>
+                <f:facet name="input"><p:inputText id="modelInput" value="#{cliente.nombre}" style="width:100%"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column headerText="Apellidos">
+            <h:outputText value="#{cliente.apellidos}" />
+        </p:column>
+ 
+         <p:column headerText="Fecha">
+            <h:outputText value="#{cliente.fecha}" />
+        </p:column>
+        
+        <p:column style="width:35px">
+            <p:rowEditor />
+        </p:column>
+        
+        <f:facet name="paginatorTopLeft">
+            <p:commandButton type="button" icon="pi pi-refresh" />
+        </f:facet>
+ 
+        <f:facet name="paginatorBottomRight">
+            <p:commandButton type="button" icon="pi pi-cloud-upload" />
+        </f:facet>
+ 
+    </p:dataTable>
+</h:form>
+
+</h:body>
+</html>
